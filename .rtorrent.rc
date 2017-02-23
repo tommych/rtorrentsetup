@@ -59,6 +59,7 @@ system.daemon.set = true
 ###################################
 # Scheduling (Watch)
 ###################################
+schedule = watch_any,10,10,((load.start,(cat,(cfg.watch),"*.torrent")))
 schedule = watch_tv,10,10,((load.start,(cat,(cfg.watch),"tv/*.torrent"),d.custom1.set=tv))
 schedule = watch_movie,15,10,((load.start,(cat,(cfg.watch),"movie/*.torrent"),d.custom1.set=movie))
 
