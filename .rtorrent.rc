@@ -6,10 +6,10 @@
 ###################################
 # Base Paths
 ###################################
-method.insert = cfg.rtorrent_basedir,    private|const|string, (cat,"/var/lib/rtorrent/") 
-method.insert = cfg.watch,      private|const|string, (cat,(cfg.rtorrent_basedir),"watch/")
-method.insert = cfg.logs,       private|const|string, (cat,(cfg.rtorrent_basedir),"log/")
-method.insert = cfg.logfile,    private|const|string, (cat,(cfg.logs),"rtorrent-",(system.time),".log")
+method.insert = cfg.rtorrent_basedir,    private|const|string, (cat,"CHANGE_THIS_PATH") 
+method.insert = cfg.watch,      private|const|string, (cat,(cfg.rtorrent_basedir),"/watch")
+method.insert = cfg.logs,       private|const|string, (cat,(cfg.rtorrent_basedir),"/log")
+method.insert = cfg.logfile,    private|const|string, (cat,(cfg.logs),"/rtorrent-",(system.time),".log")
 
 
 ###################################
@@ -60,13 +60,8 @@ dht.mode.set = disable
 # Scheduling (Watch)
 ###################################
 schedule = watch_any,10,10,((load.start,(cat,(cfg.watch),"*.torrent")))
-schedule = watch_tv,10,10,((load.start,(cat,(cfg.watch),"tv/*.torrent"),d.custom1.set=tv))
-schedule = watch_movie,15,10,((load.start,(cat,(cfg.watch),"movie/*.torrent"),d.custom1.set=movie))
-
-#schedule = watch_directory1,5,5,load.start=/mnt/rdisk/rtorrent/watch/*.torrent
-#schedule = watch_directory2,5,5,"load.start=/mnt/rdisk/rtorrent/watch/kshow/*.torrent,d.custom1.set=kshow"
-#schedule = watch_directory3,5,5,"load.start=/mnt/rdisk/rtorrent/watch/tv/*.torrent,d.custom1.set=tv"
-#schedule = watch_directory4,5,5,"load.start=/mnt/rdisk/rtorrent/watch/movie/*.torrent,d.custom1.set=movie"
+schedule = watch_tv,10,10,((load.start,(cat,(cfg.watch),"/tv/*.torrent"),d.custom1.set=tv))
+schedule = watch_movie,15,10,((load.start,(cat,(cfg.watch),"/movie/*.torrent"),d.custom1.set=movie))
 
 #schedule2 = ip_tick,0,1800,ip=rakshasa
 #schedule2 = bind_tick,0,1800,bind=rakshasa
@@ -86,6 +81,6 @@ log.add_output = "info", "log"
 ###################################
 # Execution Commands
 ###################################
-execute2 = {sh,-c,/usr/bin/php /var/www/rutorrent/php/initplugins.php tommy &}
-#method.set_key=event.download.finished,processfinishedtor,"execute=/myscript/process.sh,$d.custom1=,$d.name=,$d.base_path="
+execute2 = {sh,-c,/usr/bin/php /var/www/rutorrent/php/initplugins.php CHANGE_THIS_USER &}
+#method.set_key=event.download.finished,processfinishedtor,"execute=/pathto/somescript.sh,$d.custom1=,$d.name=,$d.base_path="
 
