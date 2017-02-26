@@ -81,6 +81,6 @@ log.add_output = "info", "log"
 ###################################
 # Execution Commands
 ###################################
-execute2 = {sh,-c,/usr/bin/php /var/www/rutorrent/php/initplugins.php CHANGE_THIS_USER &}
+execute2 = {sh,-c,/usr/bin/php /var/www/rutorrent/php/initplugins.php CHANGE_THIS_USERNAME &}
 #method.set_key=event.download.finished,processfinishedtor,"execute=/pathto/somescript.sh,$d.custom1=,$d.name=,$d.base_path="
 
