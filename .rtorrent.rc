@@ -15,8 +15,8 @@ method.insert = cfg.logfile,    private|const|string, (cat,(cfg.logs),"/rtorrent
 ###################################
 # Directory Settings
 ###################################
-session.path.set = (cat,(cfg.rtorrent_basedir),".session")
-directory.default.set = (cat,(cfg.rtorrent_basedir),"download")
+session.path.set = (cat,(cfg.rtorrent_basedir),"/.session")
+directory.default.set = (cat,(cfg.rtorrent_basedir),"/download")
 
 
 ###################################
