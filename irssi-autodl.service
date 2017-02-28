@@ -1,0 +1,16 @@
+[Unit]
+Description=Irssi-Autodl
+After=network.target
+
+[Service]
+User=$USER
+Group=media
+UMask=0002
+
+Type=simple
+KillMode=process
+Restart=on-failure
+ExecStart=/usr/bin/irssi
+
+[Install]
+WantedBy=multi-user.target
